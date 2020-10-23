@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# the plan is, this script is called with a cron job sth like so:
+#minute	hour	mday	month	wday	command
+# *	*	*	*	*	/home/ghz/light_wx/light_sync
+
+/home/ghz/light_wx/grab_48h
+gnuplot /home/ghz/light_wx/light_wx.gnuplot
+/usr/bin/rsync -e 'ssh -q' --timeout=60 -ur /home/ghz/light_wx/* wx7_sync:/wx7/
