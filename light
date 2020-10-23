@@ -291,7 +291,13 @@ if __name__ == "__main__":
 			# try a sync, and see if that helps. how much garbage should we write to a closed file?
 			os.sync()
 
-			plot(ts, dat_fname)
+			# plot(ts, dat_fname)
+			# see if gnuplotting uses less power
+			try:
+				# run perl script to grapb last 48h of data, and gnuplot
+				os.system('/home/ghz/light_wx/light_sync')
+			except:
+				print("light_sync failed.")
 
 			if(args.debug):
 				print('r', end='', flush=True)
