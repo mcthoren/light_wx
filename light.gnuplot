@@ -18,9 +18,11 @@ dat_f='/home/ghz/light_wx/data/2-3_day.power'
 
 set ylabel "Illuminance (lx)"
 set y2label "Illuminance (lx)"
-
 set output '/home/ghz/light_wx/plots/light_lux.png'
-plot dat_f using 1:5 title 'Illuminance' with lines linecolor rgb "#0000ff"
+plot dat_f using 1:5 title 'Illuminance' with lines linecolor rgb "#bbbb00"
+
+set ylabel "Illuminance (counts)"
+set y2label "Illuminance (counts)"
 
 set output '/home/ghz/light_wx/plots/light_uva.png'
 plot dat_f using 1:5 title 'UVA Illuminance' with lines linecolor rgb "#0000ff"
@@ -33,6 +35,7 @@ plot dat_f using 1:9 title 'IR Illuminance' with lines linecolor rgb "#ff0000"
 
 set ylabel "Temp (°C)"
 set y2label "Temp (°C)"
+set title "Pi Temp over the Last \\~48 Hours"
 set output '/home/ghz/light_wx/plots/light_temp.png'
 plot dat_f using 1:13 title 'Pi Temp' with lines linecolor rgb "#ff00bb"
 
