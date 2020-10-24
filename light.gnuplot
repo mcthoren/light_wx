@@ -43,8 +43,8 @@ set title "Light levels over the Last \\~48 Hours"
 set autoscale y
 set autoscale y2
 
-set ylabel "(UVA sensor counts)"
-set y2label "(BB/IR sensor counts)"
+set ylabel "UVA Illuminance (counts)"
+set y2label "BB/IR Illuminance (counts)"
 
 set output '/home/ghz/light_wx/plots/light_smooth.png'
 plot dat_f using 1:5 axes x1y1 title 'UVA' with lines linecolor rgb "#0000ff", \
