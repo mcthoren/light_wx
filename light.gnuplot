@@ -8,7 +8,7 @@ set xdata time;
 set format x "%F\n%TZ"
 set timefmt "%Y%m%d%H%M%S"
 set grid
-set term png size 1900, 512 font ",10"
+set term pngcairo size 1900, 512 font ",10"
 
 set format y "%.0f"
 set format y2 "%.0f"
@@ -27,7 +27,7 @@ set output '/home/ghz/light_wx/plots/light_uva.png'
 plot dat_f using 1:5 title 'UVA Illuminance' with lines lw 2 linecolor rgb "#0000ff"
 
 set output '/home/ghz/light_wx/plots/light_bb.png'
-plot dat_f using 1:7 title 'Broad Band Illuminance' with lines lw 2 linecolor rgb "#00bb00"
+plot dat_f using 1:7 title 'Broad Band Illuminance' with lines lw 2 linecolor rgb "#00aa00"
 
 set output '/home/ghz/light_wx/plots/light_ir.png'
 plot dat_f using 1:9 title 'IR Illuminance' with lines lw 2 linecolor rgb "#ff0000"
