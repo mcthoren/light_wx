@@ -38,13 +38,15 @@ set title "Pi Temp over the Last \\~48 Hours"
 set output '/home/ghz/light_wx/plots/light_temp.png'
 plot dat_f using 1:13 title 'Pi Temp' with lines lw 2 linecolor rgb "#bb00ff"
 
-# set autoscale y
-# set autoscale y2
+set title "Light levels over the Last \\~48 Hours"
 
-# set ylabel "(UVA sensor counts)"
-# set y2label "(BB/IR sensor counts)"
+set autoscale y
+set autoscale y2
 
-# set output '/tmp/light.smooth.png'
-# plot dat_f using 1:5 axes x1y1 title 'UVA' with lines linecolor rgb "#0000ff" smooth sbezier, \
-# dat_f using 1:7 axes x1y2 title 'BB' with lines linecolor rgb "#00ff00" smooth bezier, \
-# dat_f using 1:9 axes x1y2 title 'IR' with lines linecolor rgb "#ff0000" smooth bezier
+set ylabel "(UVA sensor counts)"
+set y2label "(BB/IR sensor counts)"
+
+set output '/home/ghz/light_wx/plots/light_smooth.png'
+plot dat_f using 1:5 axes x1y1 title 'UVA' with lines linecolor rgb "#0000ff", \
+dat_f using 1:7 axes x1y2 title 'BB' with lines linecolor rgb "#00ff00", \
+dat_f using 1:9 axes x1y2 title 'IR' with lines linecolor rgb "#ff0000"
