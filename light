@@ -3,7 +3,6 @@
 
 import time, datetime, busio, board, sys, fileinput, os, argparse
 import numpy as np
-import matplotlib.dates as mdates
 import adafruit_veml6070
 import adafruit_tsl2561
 
@@ -19,41 +18,6 @@ def conv_qs(data):
 		return np.nan
 	else:
 		return data
-
-# this is, in the end, coverting utf-8 data to utf-8 data, cuz somewhere it got thought of as bytes.
-def u2u(data):
-	return mdates.strpdate2num('%Y%m%d%H%M%S')(data.decode("utf8"))
-
-def plot(ts, n_plate):
-	npoints = 2085 # about 3 days in reality
-	dat_f = ["1000", "0100", "0010", "0001"]
-	td = datetime.datetime.strptime(ts, "%Y%m%d%H%M%S")
-
-	for i in range(0, 4):
-		d_date = (td - datetime.timedelta(i)).strftime("%Y%m%d")
-		d_year = (td - datetime.timedelta(i)).strftime("%Y")
-		dat_f[3 - i] = wx_dir+'/data/'+d_year+'/'+n_plate+'.'+d_date
-		wx.proof_dat_f(dat_f[3 - i])
-
-	light_dat  = fileinput.input(dat_f)
-
-	date, lux, uva, bb, ir , pt = np.loadtxt(light_dat, usecols=(0, 2, 4, 6, 8, 12), unpack=True,  \
-		converters={ 0: u2u, 2: conv_qs, 4: conv_qs, 6: conv_qs, 8: conv_qs, 12: conv_qs})
-
-	if date.size < 4:
-		return 0 # not enough points yet. wait for more
-
-	if date.size < npoints:
-		npoints = date.size - 1
-
-	f_pts  = date.size - npoints
-	t_pts  = date.size
-
-	wx.graph(date[f_pts : t_pts], lux[f_pts : t_pts], "y-", "Illuminance", "Illuminance (lx)", plot_d+'light_lux.png')
-	wx.graph(date[f_pts : t_pts], uva[f_pts : t_pts], "b-", "UVA Illuminance", "Illuminance (counts)", plot_d+'light_uva.png')
-	wx.graph(date[f_pts : t_pts], bb[f_pts : t_pts], "g-", "Broad Band Illuminance", "Illuminance (counts)", plot_d+'light_bb.png')
-	wx.graph(date[f_pts : t_pts], ir[f_pts : t_pts], "r-", "IR Illuminance", "Illuminance (counts)", plot_d+'light_ir.png')
-	wx.graph(date[f_pts : t_pts], pt[f_pts : t_pts], "c-", "Pi Temp", "Temp °C", plot_d+'light_temp.png')
 
 # part of the ongoing effort to keeps the two sensors from locking up when it's bright out.
 def uv_read(uv):
@@ -291,8 +255,6 @@ if __name__ == "__main__":
 			# try a sync, and see if that helps. how much garbage should we write to a closed file?
 			os.sync()
 
-			# plot(ts, dat_fname)
-			# see if gnuplotting uses less power
 			try:
 				# run perl script to grapb last 48h of data, and gnuplot
 				os.system('/home/ghz/light_wx/light_sync')
