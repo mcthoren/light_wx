@@ -1,13 +1,15 @@
 set title "Light levels over the Last \\~48 Hours"
 set xtics 7200 rotate by 30 offset -5.7, -2.2
-set ytics nomirror
+set ytics
+set mytics
 set y2tics
 set key outside below
 set xlabel "Time (UTC)" offset 0.0, -1.6
 set xdata time;
 set format x "%F\n%TZ"
 set timefmt "%Y%m%d%H%M%S"
-set grid
+set grid xtics
+set grid y2tics
 set term pngcairo size 1900, 512 font ",10"
 
 set format y "%.0f"
@@ -45,6 +47,9 @@ set autoscale y2
 
 set ylabel "UVA Illuminance (counts)"
 set y2label "BB/IR Illuminance (counts)"
+
+set ytics nomirror
+set my2tics
 
 set output '/home/ghz/light_wx/plots/light_smooth.png'
 plot dat_f using 1:5 axes x1y1 title 'UVA' with lines linecolor rgb "#0000ff", \
