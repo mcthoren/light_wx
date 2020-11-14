@@ -20,7 +20,7 @@ dat_f='/home/ghz/light_wx/data/2-3_day.power'
 set ylabel "Illuminance (lx)"
 set y2label "Illuminance (lx)"
 set output '/home/ghz/light_wx/plots/light_lux.png'
-plot dat_f using 1:5 title 'Illuminance' with lines lw 2 linecolor rgb "#dddd00"
+plot dat_f using 1:3 title 'Illuminance' with lines lw 2 linecolor rgb "#dddd00"
 
 set ylabel "Illuminance (counts)"
 set y2label "Illuminance (counts)"
