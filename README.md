@@ -42,3 +42,4 @@ to do:
 - [x] finish readme
 - [x] add temp
 - [x] graph temp
+- [x] graph luminous exposure
