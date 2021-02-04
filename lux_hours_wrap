@@ -1,0 +1,18 @@
+#!/usr/bin/zsh
+
+# this is meant to be use from a crontab entry like so:
+# min	hour	mday	month	wday	command
+# 59	23	*	*	*	~/light_wx/lux_hours_wrap
+
+HD="/home/ghz/light_wx"
+YD="$(date +%Y)"
+DD="$(date +%Y%m%d)"
+DATD="${HD}/data/${YD}"
+
+cd "${HD}" || exit
+
+LUX_HOURS="$( ${HD}/lux_hours_calc "${DATD}/light_levels.${DD}" | grep "lux hours" )"
+
+echo -e "${DD}\t${LUX_HOURS}" >> "${HD}/data/lux_hours.dat"
+
+/usr/bin/gnuplot "${HD}/lux_hours.gnuplot"

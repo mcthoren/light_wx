@@ -1,0 +1,46 @@
+#!/usr/bin/perl -T
+
+# Δt = 24h/day / $samples/day
+
+# ∫ lux(x)Δt
+# → ∑ lux₁*Δt + lux₂ * Δt + lux₃ * Δt + lux_n * Δt + …
+# → Δt ∑ lux_n
+
+use strict;
+use warnings;
+
+sub usage() {
+	print "usage: $0 filename\n";
+	exit;
+}
+
+my ($num, $lux, $lux_sum) = (0, 0, 0);
+
+unless ($#ARGV == 0) {
+	usage();
+}
+
+my $read_f = $ARGV[0] ;
+
+unless (-e $read_f) {
+	usage;
+}
+
+open(IN, "<", $read_f) or die "omg! can't open input file: $read_f";
+
+while (<IN>) {
+	chomp;
+	my ($x, $a, $lux, $z) = split;
+	if ($lux ne "??" && $lux ne "nan") {
+		$lux_sum += $lux; 
+		$num++;
+	}
+}
+
+if ($lux_sum && $num && $num > 0) {
+	printf "Δt = %.2f h\n", 24.0 / $num;
+	printf "∑ lux = %.2f lx\n", $lux_sum;
+	printf "lux hours: %.2f lxh\n", $lux_sum * 24 / $num;
+}
+
+close(IN);
