@@ -16,7 +16,7 @@ set grid mxtics
 set grid mytics
 set format y "%.1f"
 set format y2 "%.1f"
-set xrange ["20200503":]
+set xrange ["20201018":]
 
 dat_f='/home/ghz/light_wx/data/lux_hours.dat'
 
