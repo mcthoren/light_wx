@@ -15,7 +15,7 @@ set term pngcairo size 1900, 512 font ",10"
 set format y "%.0f"
 set format y2 "%.0f"
 
-dat_f='/home/ghz/light_wx/data/2-3_day.power'
+dat_f='/home/ghz/light_wx/data/2-3_day.light'
 
 set ylabel "Illuminance (lx)"
 set y2label "Illuminance (lx)"

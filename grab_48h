@@ -10,7 +10,7 @@ my $date = time;
 my $wx_name = "light";
 my $data_d = "/home/ghz/${wx_name}_wx/data";
 
-my $out_dat_f = "$data_d/2-3_day.power";
+my $out_dat_f = "$data_d/2-3_day.light";
 my $out_dat_f_t = "$out_dat_f.tmp";
 
 unlink $out_dat_f or printf "could not delete $out_dat_f\n";
