@@ -249,6 +249,12 @@ if __name__ == "__main__":
 					print('x', end='', flush=True)
 				tbb = np.nan
 
+			# first stab at cheesy unwrapping the uv data.
+			if(tuvr < 400 and tir > 40000):
+				if(args.debug):
+					print('y', end='', flush=True)
+				tuvr += 1965.5 # 1965.5 is the highest value we've seen yet.
+
 			bb = "%.2f" % (tbb)
 			ir = "%.2f" % (tir)
 			uvr = "%.2f" % (tuvr)
