@@ -100,14 +100,22 @@ if __name__ == "__main__":
 
 		uvt = uv_read(uv_sens)
 		if(isinstance(uvt, (float, int))):
+			if(uvt == 0 or uvt == 255):
+				# try one more time
+				if(args.debug):
+					print('j', uvt, end='', flush=True)
+				uvt = uv_read(uv_sens)
+				if(args.debug):
+					print('k', uvt, end='', flush=True)
+		if(isinstance(uvt, (float, int)) and uvt != 0 and uvt != 255):
 			if(uvt < 1.0 and uv_a_idx < 3):
 				if(args.debug):
-					print('^', end='', flush=True)
+					print('^', uvt, end='', flush=True)
 				uv_a_idx += 1
 				uv_sens.integration_time = uv_dings_array[uv_a_idx]
 			if(uvt > 100 and uv_a_idx > 0):
 				if(args.debug):
-					print('v', end='', flush=True)
+					print('v', uvt, end='', flush=True)
 				uv_a_idx -= 1
 				uv_sens.integration_time = uv_dings_array[uv_a_idx]
 
@@ -243,17 +251,28 @@ if __name__ == "__main__":
 				lux = np.nan
 
 			# the broadband seems to wrap around 110,000 counts. the IR sensor seems more immune to this.
-			# XXX toss the BB data for now, but we might make an effort to try to unwrap it later.
+			# XXX extra cheesy, prly not very valid attempt at unwrapping sensor data
 			if(tbb < 40000 and tir > 25000):
 				if(args.debug):
-					print('x', end='', flush=True)
-				tbb = np.nan
+					print('w', end='', flush=True)
+				tbb += 117406.65 # highest recorded value so far
 
 			# first stab at cheesy unwrapping the uv data.
+			uv_wrap = 1965.5 # 1965.5 is the highest value we've seen yet.
 			if(tuvr < 400 and tir > 40000):
 				if(args.debug):
+					print('x', end='', flush=True)
+				tuvr += uv_wrap
+
+			if(tuvr < 650 and tir > 55000):
+				if(args.debug):
 					print('y', end='', flush=True)
-				tuvr += 1965.5 # 1965.5 is the highest value we've seen yet.
+				tuvr += uv_wrap
+
+			if(tuvr < 800 and tir > 65000):
+				if(args.debug):
+					print('z', end='', flush=True)
+				tuvr += uv_wrap
 
 			bb = "%.2f" % (tbb)
 			ir = "%.2f" % (tir)
