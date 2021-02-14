@@ -274,6 +274,12 @@ if __name__ == "__main__":
 					print('z', end='', flush=True)
 				tuvr += uv_wrap
 
+			# treat these sensors more like one pixle cameras than broken temp sensors
+			# when it reach saturation, indicate saturation, not nan.
+			lux_sat = 32893 # highest value so far. XXX figure out what actual saturation is
+			if(isinstance(lux, (float, int)) and np.isnan(lux) and tbb > 80000 and tir > 40000):
+				lux = lux_sat
+
 			bb = "%.2f" % (tbb)
 			ir = "%.2f" % (tir)
 			uvr = "%.2f" % (tuvr)
