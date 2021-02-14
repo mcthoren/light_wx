@@ -294,7 +294,7 @@ if __name__ == "__main__":
 			os.sync()
 
 			try:
-				# run perl script to grapb last 48h of data, and gnuplot
+				# run perl script to grab last 48h of data, and gnuplot
 				os.system('/home/ghz/light_wx/light_sync')
 			except:
 				print("light_sync failed.")
