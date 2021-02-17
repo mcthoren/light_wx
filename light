@@ -100,14 +100,14 @@ if __name__ == "__main__":
 
 		uvt = uv_read(uv_sens)
 		if(isinstance(uvt, (float, int))):
-			if(uvt == 0 or uvt == 255):
+			if((uvt == 0 and uv_a_idx == 0) or uvt == 255):
 				# try one more time
 				if(args.debug):
 					print('j', uvt, end='', flush=True)
 				uvt = uv_read(uv_sens)
 				if(args.debug):
 					print('k', uvt, end='', flush=True)
-		if(isinstance(uvt, (float, int)) and uvt != 0 and uvt != 255):
+		if(isinstance(uvt, (float, int)) and uvt != 255):
 			if(uvt < 1.0 and uv_a_idx < 3):
 				if(args.debug):
 					print('^', uvt, end='', flush=True)
@@ -278,6 +278,10 @@ if __name__ == "__main__":
 			# when it reach saturation, indicate saturation, not nan.
 			lux_sat = 32893 # highest value so far. XXX figure out what actual saturation is
 			if(isinstance(lux, (float, int)) and np.isnan(lux) and tbb > 80000 and tir > 40000):
+				lux = lux_sat
+
+			# more weird saturation conditions
+			if(isinstance(lux, (float, int)) and lux < 1000 and tbb > 80000 and tir > 40000):
 				lux = lux_sat
 
 			bb = "%.2f" % (tbb)
