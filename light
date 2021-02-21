@@ -284,6 +284,9 @@ if __name__ == "__main__":
 			if(isinstance(lux, (float, int)) and lux < 1000 and tbb > 80000 and tir > 40000):
 				lux = lux_sat
 
+			if(args.debug):
+				print('o', end='', flush=True)
+
 			bb = "%.2f" % (tbb)
 			ir = "%.2f" % (tir)
 			uvr = "%.2f" % (tuvr)
@@ -295,7 +298,13 @@ if __name__ == "__main__":
 			# it's solar powered. i'm in n.eu. it doesn't always enjoy clean shutdowns,
 			# and then garbage in the dat file prevents the graphing from working on restart.
 			# try a sync, and see if that helps. how much garbage should we write to a closed file?
+			if(args.debug):
+				print('s', end='', flush=True)
+
 			os.sync()
+
+			if(args.debug):
+				print('g', end='', flush=True)
 
 			try:
 				# run perl script to grab last 48h of data, and gnuplot
@@ -303,7 +312,9 @@ if __name__ == "__main__":
 			except:
 				print("light_sync failed.")
 
-			if(args.debug):
+			if(args.debug and not args.moredebug):
+				print('r', flush=True)
+			if(args.debug and args.moredebug):
 				print('r', end='', flush=True)
 
 			try:
@@ -312,7 +323,7 @@ if __name__ == "__main__":
 			except:
 				print("rsync failed.")
 
-			if(args.debug):
+			if(args.moredebug):
 				print(counts, flush=True)
 
 			for i in range(0,5):
