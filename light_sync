@@ -1,5 +1,10 @@
 #!/bin/sh
 
 /home/ghz/light_wx/grab_48h
+
+# sometimes gnuplot hangs on futex(2). i'm not sure why.
+# but if it's running now, it shouldn't be
+pgrep gnuplot > /dev/null && pkill gnuplot
+
 /usr/bin/gnuplot /home/ghz/light_wx/light.gnuplot
 # /usr/bin/rsync -e 'ssh -q' --timeout=60 -ur /home/ghz/light_wx/* wx7_sync:/wx7/
