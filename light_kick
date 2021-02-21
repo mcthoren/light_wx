@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# until we figure out why gnuplot sometimes hangs on futex(2)
+# use this cheesy cron job to try to make this whole thing more vacation proof.
+
+# check for life
+find /home/ghz/light_wx/data -mmin -20 | grep . > /dev/null || {
+	echo "no data in 20 minutes. killing light."
+	pkill light
+	pkill gnuplot # sometime gnuplot hangs on futex(2). not yet sure why.
+}
+
+# wait for death
+sleep 16
+pgrep light > /dev/null || {
+	echo "no light. restarting light."
+	/home/ghz/light_wx/light &
+}
