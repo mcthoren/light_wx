@@ -1,13 +1,16 @@
 #!/usr/bin/perl -T
 
+use strict;
+use warnings;
+use utf8;
+use open qw(:std :utf8);
+use Encode qw(encode decode);
+
 # Δt = 24h/day / $samples/day
 
 # ∫ lux(x)Δt
 # → ∑ lux₁*Δt + lux₂ * Δt + lux₃ * Δt + lux_n * Δt + …
 # → Δt ∑ lux_n
-
-use strict;
-use warnings;
 
 sub usage() {
 	print "usage: $0 filename\n";
@@ -19,6 +22,8 @@ my ($num, $lux, $lux_sum) = (0, 0, 0);
 unless ($#ARGV == 0) {
 	usage();
 }
+
+@ARGV = map { decode("UTF-8", $_) } @ARGV;
 
 my $read_f = $ARGV[0] ;
 
