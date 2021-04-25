@@ -21,8 +21,10 @@ dat_fname='v2_light.dat'
 i2c = busio.I2C(board.SCL, board.SDA)
 vis = adafruit_veml7700.VEML7700(i2c)
 
-# given or experience with the v1 light sensor, just set the 
-# gain and integration time to be as numb as possible
+# given our experience with the v1 light sensor, just set the
+# gain and integration time to be as numb as possible. accuratley
+# measuring light levels under one or two lux doesn't help us
+# when it all looks like 0 on a graph that goes between 0-30klux.
 #
 # ALS_25MS, ALS_50MS, ALS_100MS, ALS_200MS, ALS_400MS, ALS_800MS
 vis.light_integration_time = vis.ALS_25MS
@@ -48,10 +50,10 @@ if __name__ == "__main__":
 
 		if count >= 160:
 			ts = datetime.datetime.fromtimestamp(time.time()).strftime("%Y%m%d%H%M%S")
-			dat = "%s\tvis_lux: %.2f\tvis_counts: %d" % \
+			dat = "%s\tvis_lux: %.2f\tvis_counts: %d\n" % \
 				(ts, vis_lux_total / count, vis_counts_total / count)
 
-			print(dat)
+			wx.write_out_dat_stamp(ts, dat_fname, dat, wx_dir)
 			vis_counts_total = 0
 			vis_lux_total = 0
 			count = 0
