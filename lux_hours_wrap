@@ -11,7 +11,7 @@ DATD="${HD}/data/${YD}"
 
 cd "${HD}" || exit
 
-LUX_HOURS="$( ${HD}/lux_hours_calc "${DATD}/light_levels.${DD}" | grep "lux hours" )"
+LUX_HOURS="$( ${HD}/lux_hours_calc "${DATD}/v2_light.dat.${DD}" | grep "lux hours" )"
 
 echo -e "${DD}\t${LUX_HOURS}" >> "${HD}/data/lux_hours.dat"
 
