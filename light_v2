@@ -50,8 +50,8 @@ if __name__ == "__main__":
 
 		if count >= 160:
 			ts = datetime.datetime.fromtimestamp(time.time()).strftime("%Y%m%d%H%M%S")
-			dat = "%s\tvis_lux: %.2f\tvis_counts: %d\n" % \
-				(ts, vis_lux_total / count, vis_counts_total / count)
+			dat = "%s\tvis_lux: %.2f\tvis_counts: %d\tpi_temp_C: %.2f\n" % \
+				(ts, vis_lux_total / count, vis_counts_total / count, float(wx.pi_temp_read()) / 1000)
 
 			wx.write_out_dat_stamp(ts, dat_fname, dat, wx_dir)
 			vis_counts_total = 0

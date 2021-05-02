@@ -21,3 +21,9 @@ set ylabel "Illuminance (lx)"
 set y2label "Illuminance (lx)"
 set output '/home/ghz/light_wx/plots/v2_light_lux.png'
 plot dat_f using 1:3 title 'Illuminance' with lines lw 2 linecolor rgb "#dddd00"
+
+set ylabel "(°C)"
+set y2label "(°C)"
+
+set output '/home/ghz/repos/light_wx/plots/pitemp.png'
+plot dat_f using 1:7 title 'Pi Temp (°C)' with lines linecolor rgb "#ff0000" smooth bezier
