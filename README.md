@@ -31,7 +31,7 @@ LICENSE				Lic
 README.md			Readme
 light				v1 python code to spit out data from our boards
 light.gnuplot			v1 gnuplot file
-light_kick			one of many work arounds to deal with weird bugs of a sun baked pi
+light_kick			one of many workarounds to deal with weird bugs of a sun baked pi
 light_sync			v1 script to copy everything to the webserver
 light_v2			v2 python code to read out data from our board
 light_wx.html			v1 website template
