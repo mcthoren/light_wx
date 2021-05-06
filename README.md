@@ -26,6 +26,7 @@ This code can be found in the following places:
 ##### Many thanks to Adafruit for all the wonderful docs, boards, and examples.
 
 
+<pre>
 * LICENSE			Lic
 * README.md			Readme
 * light				v1 python code to spit out data from our boards
@@ -40,3 +41,4 @@ This code can be found in the following places:
 * pickle_licht.html		v2 website template
 * pickles.light.gnuplot		v2 gnuplot file
 * pickles.sync			v2 shell script to copy everything to the webserver
+</pre>
