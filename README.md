@@ -27,18 +27,18 @@ This code can be found in the following places:
 
 
 <pre>
-* LICENSE			Lic
-* README.md			Readme
-* light				v1 python code to spit out data from our boards
-* light.gnuplot			v1 gnuplot file
-* light_kick			one of many work arounds to deal with weird bugs of a sun baked pi
-* light_sync			v1 script to copy everything to the webserver
-* light_v2			v2 python code to read out data from our board
-* light_wx.html			v1 website template
-* lux_hours.gnuplot		gnuplot file to graph total daily luminous exposure
-* lux_hours_calc		perl script to calculate daily luminous exposure
-* lux_hours_wrap		cron script to grab lux hours data and graph it
-* pickle_licht.html		v2 website template
-* pickles.light.gnuplot		v2 gnuplot file
-* pickles.sync			v2 shell script to copy everything to the webserver
+LICENSE				Lic
+README.md			Readme
+light				v1 python code to spit out data from our boards
+light.gnuplot			v1 gnuplot file
+light_kick			one of many work arounds to deal with weird bugs of a sun baked pi
+light_sync			v1 script to copy everything to the webserver
+light_v2			v2 python code to read out data from our board
+light_wx.html			v1 website template
+lux_hours.gnuplot		gnuplot file to graph total daily luminous exposure
+lux_hours_calc			perl script to calculate daily luminous exposure
+lux_hours_wrap			cron script to grab lux hours data and graph it
+pickle_licht.html		v2 website template
+pickles.light.gnuplot		v2 gnuplot file
+pickles.sync			v2 shell script to copy everything to the webserver
 </pre>
