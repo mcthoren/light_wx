@@ -2,7 +2,9 @@
 
 This project now has two version.
 * Version 1 uses sensors that weren't really made for outdoor light levels.
-* After the code became mostly workarounds for sad sensors we started with another sensor.
+* After the code became mostly workarounds for sad sensors we started on a v2.
+* v1 has been demoted to indoor plant duty.
+
 * Version 1 of the light meter used the following boards:
   * An Adafruit VEML6070 breakout board.
     * [Datasheet](https://cdn-learn.adafruit.com/assets/assets/000/032/482/original/veml6070.pdf)
