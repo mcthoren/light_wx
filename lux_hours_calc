@@ -43,7 +43,7 @@ while (<IN>) {
 }
 
 if ($lux_sum && $num && $num > 0) {
-	printf "Δt = %.2f h\n", 24.0 / $num;
+	printf "Δt = %.12f h\n", 24.0 / $num;
 	printf "∑ lux = %.2f lx\n", $lux_sum;
 	printf "lux hours: %.2f lxh\n", $lux_sum * 24 / $num;
 }
