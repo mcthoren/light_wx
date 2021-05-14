@@ -34,6 +34,8 @@ plot dat_f using 1:7 title 'Broad Band Illuminance' with lines lw 2 linecolor rg
 set output '/home/ghz/light_wx/plots/light_ir.png'
 plot dat_f using 1:9 title 'IR Illuminance' with lines lw 2 linecolor rgb "#ff0000"
 
+set format y "%.1f"
+set format y2 "%.1f"
 set ylabel "Temp (°C)"
 set y2label "Temp (°C)"
 set title "Pi Temp over the Last \\~48 Hours"
@@ -50,6 +52,9 @@ set y2label "BB/IR Illuminance (counts)"
 
 set ytics nomirror
 set my2tics
+
+set format y "%.0f"
+set format y2 "%.0f"
 
 set output '/home/ghz/light_wx/plots/light_smooth.png'
 plot dat_f using 1:5 axes x1y1 title 'UVA' with lines linecolor rgb "#0000ff", \
