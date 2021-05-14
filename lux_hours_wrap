@@ -9,9 +9,15 @@ YD="$(date +%Y)"
 DD="$(date +%Y%m%d)"
 DATD="${HD}/data/${YD}"
 
+if [ "$(hostname -s)" = "holly" ]; then
+	FN='light_levels'
+else
+	FN='v2_light.dat'
+fi
+
 cd "${HD}" || exit
 
-LUX_HOURS="$( ${HD}/lux_hours_calc "${DATD}/v2_light.dat.${DD}" | grep "lux hours" )"
+LUX_HOURS="$( ${HD}/lux_hours_calc "${DATD}/${FN}.${DD}" | grep "lux hours" )"
 
 echo -e "${DD}\t${LUX_HOURS}" >> "${HD}/data/lux_hours.dat"
 
