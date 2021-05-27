@@ -13,9 +13,8 @@ set xtics auto rotate by 30 offset -6.8, -2.2
 set mxtics
 set mytics
 set grid mxtics
-set grid mytics
-set format y "%.1f"
-set format y2 "%.1f"
+set format y "%.0f"
+set format y2 "%.0f"
 
 dat_f='/home/ghz/light_wx/data/lux_hours.dat'
 
