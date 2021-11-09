@@ -14,6 +14,8 @@ set mxtics
 set mytics
 set xrange [:] noextend
 set grid mxtics
+set xtics out
+set ytics out
 set format y "%.0f"
 set format y2 "%.0f"
 
