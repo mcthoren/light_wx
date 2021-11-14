@@ -25,9 +25,13 @@ plot dat_f using 1:3 title 'Illuminance' with lines lw 2 linecolor rgb "#dddd00"
 set ylabel "Illuminance (counts)"
 set y2label "Illuminance (counts)"
 
+set format y "%.1f"
+set format y2 "%.1f"
 set output '/home/ghz/light_wx/plots/light_uva.png'
 plot dat_f using 1:5 title 'UVA Illuminance' with lines lw 2 linecolor rgb "#0000ff"
 
+set format y "%.0f"
+set format y2 "%.0f"
 set output '/home/ghz/light_wx/plots/light_bb.png'
 plot dat_f using 1:7 title 'Broad Band Illuminance' with lines lw 2 linecolor rgb "#00aa00"
 
