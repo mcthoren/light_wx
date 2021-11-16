@@ -57,7 +57,7 @@ set y2label "BB/IR Illuminance (counts)"
 set ytics nomirror
 set my2tics
 
-set format y "%.0f"
+set format y "%.1f"
 set format y2 "%.0f"
 
 set output '/home/ghz/light_wx/plots/light_smooth.png'
