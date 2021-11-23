@@ -25,7 +25,7 @@ This project now has two version.
     * [Lib Docs](https://circuitpython.readthedocs.io/projects/veml7700/en/latest/api.html)
 
     * This code can be found in the following places:
-      * https://wx.slackology.net/light_wx.html		<--page
+      * https://wx.slackology.net/pickle_licht.html	<--page
       * https://github.com/mcthoren/light_wx		<--code
       * https://wx.slackology.net/			<--code, data, plots, page
 
