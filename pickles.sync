@@ -25,6 +25,6 @@ gnuplot "$v2_DIR/pickles.light.gnuplot"
 
 sync
 
-/usr/bin/rsync -ur --timeout=50 -e 'ssh -q' /home/ghz/light_wx/ wx:/wx/ 2> /dev/null
+/usr/bin/rsync -ur --delete --timeout=50 -e 'ssh -q' /home/ghz/light_wx/ wx:/wx/ 2> /dev/null
 
 rm "${LOCK}"
