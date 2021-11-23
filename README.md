@@ -13,16 +13,21 @@ This project now has two version.
     * [Datasheet](http://www.adafruit.com/datasheets/TSL2561.pdf)
     * [Adafruit Docs](https://learn.adafruit.com/tsl2561?view=all)
 
+    * This code can be found in the following places:
+      * https://wx7.slackology.net/light_wx.html	<--page
+      * https://github.com/mcthoren/light_wx		<--code
+      * https://wx7.slackology.net/			<--code, data, plots, page
+
 * Version 2 of the light meter uses the following board:
   * An Adafruit VEML7700 breakout board.
     * [Adafruit Docs](https://learn.adafruit.com/adafruit-veml7700?view=all)
     * [Datasheet](https://www.vishay.com/docs/84286/veml7700.pdf)
     * [Lib Docs](https://circuitpython.readthedocs.io/projects/veml7700/en/latest/api.html)
 
-This code can be found in the following places:
-* https://wx7.slackology.net/light_wx.html	<--page
-* https://github.com/mcthoren/light_wx		<--code
-* https://wx7.slackology.net/			<--code, data, plots, page
+    * This code can be found in the following places:
+      * https://wx.slackology.net/light_wx.html		<--page
+      * https://github.com/mcthoren/light_wx		<--code
+      * https://wx.slackology.net/			<--code, data, plots, page
 
 
 ##### Many thanks to Adafruit for all the wonderful docs, boards, and examples.
