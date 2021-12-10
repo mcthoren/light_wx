@@ -10,7 +10,7 @@
 # https://learn.adafruit.com/adafruit-veml7700?view=all
 # https://circuitpython.readthedocs.io/projects/veml7700/en/latest/api.html
 
-import time, datetime, sys, busio, board, adafruit_veml7700
+import time, sys, busio, board, adafruit_veml7700
 
 sys.path.append('/home/ghz/wxlib')
 import wxlib as wx
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 			count += 1
 
 		if count >= 160:
-			ts = datetime.datetime.fromtimestamp(time.time()).strftime("%Y%m%d%H%M%S")
+			ts = time.strftime("%Y%m%d%H%M%S", time.gmtime())
 			dat = "%s\tvis_lux: %.2f\tvis_counts: %d\tpi_temp_C: %.2f\n" % \
 				(ts, vis_lux_total / count, vis_counts_total / count, float(wx.pi_temp_read()) / 1000)
 
