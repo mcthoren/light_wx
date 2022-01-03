@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-import time, datetime, busio, board, sys, fileinput, os, argparse
+import time, busio, board, sys, fileinput, os, argparse
 import numpy as np
 import adafruit_veml6070
 import adafruit_tsl2561
@@ -290,7 +290,7 @@ if __name__ == "__main__":
 			bb = "%.2f" % (tbb)
 			ir = "%.2f" % (tir)
 			uvr = "%.2f" % (tuvr)
-			ts = datetime.datetime.fromtimestamp(time.time()).strftime("%Y%m%d%H%M%S")
+			ts = time.strftime("%Y%m%d%H%M%S", time.gmtime())
 			dat = "%s\tlux: %s\tUVA: %s\tBB: %s\tIR: %s\tGain: %s\tPi_temp: %s\tvis_int_time: %s\tuv_int_time: %s\n" % \
 				 (ts, lux, uvr, bb, ir, gain, pi_t, int_time, uv_dings_array[uv_a_idx])
 			wx.write_out_dat_stamp(ts, dat_fname, dat, wx_dir)
