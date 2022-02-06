@@ -21,11 +21,7 @@ set format y2 "%.0f"
 
 dat_f='/home/ghz/light_wx/data/lux_hours.dat'
 
-# set style fill solid 0.90 border lt -1
-# set style fill solid 0.90 noborder
-# set style fill solid 0.90 border lc "white"
-# set style fill solid 1.00 border transparent
-set style fill solid 0.90 border transparent
+set style fill solid border rgb "#c0c000"
 set output '/home/ghz/light_wx/plots/lux_hours.png'
 # data is in lxh, multiply by 3600 to get lxs, and divide by a mil to get Mlxs
-plot dat_f using 1:(($4 *3.6/1000)) t 'Luminous Exposure (Mlxs)' with boxes lc rgb "#e9e900"
+plot dat_f using 1:(($4 *3.6/1000)) t 'Luminous Exposure (Mlxs)' with boxes lc rgb "#f0f000"
