@@ -13,6 +13,9 @@ This project now has two version.
     * [Datasheet](http://www.adafruit.com/datasheets/TSL2561.pdf)
     * [Adafruit Docs](https://learn.adafruit.com/tsl2561?view=all)
 
+    * The following should install all the necessary libraries and their dependencies:
+      * pip3 install adafruit-circuitpython-veml6070 adafruit-circuitpython-tsl2561
+
     * This code can be found in the following places:
       * https://wx7.slackology.net/light_wx.html	<--page
       * https://github.com/mcthoren/light_wx		<--code
