@@ -1,5 +1,6 @@
 set title "Daily Luminous Exposure"
 set y2tics
+set link y2
 set key outside below
 set xdata time;
 set timefmt "%Y%m%d"
