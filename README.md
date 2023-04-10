@@ -24,6 +24,9 @@ This project now has two version.
     * [Datasheet](https://www.vishay.com/docs/84286/veml7700.pdf)
     * [Lib Docs](https://circuitpython.readthedocs.io/projects/veml7700/en/latest/api.html)
 
+    * The following should install all the necessary libraries and their dependencies:
+      * pip3 install adafruit-circuitpython-veml7700
+
     * This code can be found in the following places:
       * https://wx.slackology.net/pickle_licht.html	<--page
       * https://github.com/mcthoren/light_wx		<--code
