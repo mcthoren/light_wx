@@ -4,13 +4,13 @@ set link y2
 set key outside below
 set xdata time;
 set timefmt "%Y%m%d"
-set xlabel "Time (UTC)" offset 0.0, -1.6;
+set xlabel "Time (UTC)" offset 0.0, -2.8;
 set format x "%F"
 set grid
 set ylabel "H_v (Mlxs)"
 set y2label "H_v (Mlxs)"
 set term png size 1900, 512 font ",10"
-set xtics auto rotate by 30 offset -6.8, -2.2
+set xtics auto rotate by 30 offset -6.8, -3.2
 set mxtics
 set mytics
 set xrange [:] noextend
