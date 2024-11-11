@@ -13,7 +13,7 @@ set term png size 1900, 512 font ",10"
 set xtics auto rotate by 30 offset -6.8, -3.2
 set mxtics
 set mytics
-set xrange [:] noextend
+set xrange ["20230101":]
 set yrange ["0":] noextend
 set grid mxtics
 set xtics out
