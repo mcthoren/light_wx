@@ -1,0 +1,6 @@
+#!/bin/sh
+
+LOCK="/home/ghz/light_wx/plots/v2.lock"
+
+[ -e "${LOCK}" ] && rm "${LOCK}"
+true

@@ -1,0 +1,13 @@
+[Unit]
+Description=Count photons hitting our light sensor via a gpio line.
+After=network.target systemd-timesyncd.service systemd-udevd.service systemd-udev-settle.service
+Requires=systemd-udevd.service systemd-udev-settle.service
+
+[Service]
+User=ghz
+WorkingDirectory=/home/ghz/light_wx
+ExecStartPre=/home/ghz/light_wx/clean_locks
+ExecStart=/home/ghz/light_wx/light_v2
+
+[Install]
+WantedBy=multi-user.target
