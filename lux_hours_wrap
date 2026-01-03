@@ -21,4 +21,6 @@ LUX_HOURS="$( ${HD}/lux_hours_calc "${DATD}/${FN}.${DD}" | grep "lux hours" )"
 
 echo -e "${DD}\t${LUX_HOURS}" >> "${HD}/data/lux_hours.dat"
 
+tail -45 "${HD}/data/lux_hours.dat" > "${HD}/data/lux_hours.45.dat"
+
 /usr/bin/gnuplot "${HD}/lux_hours.gnuplot"
