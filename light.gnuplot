@@ -5,7 +5,7 @@ set mytics
 set y2tics
 set link y2
 set key outside below
-set xlabel "Time (UTC)" offset 0.0, -1.6
+set xlabel "Time (UTC)\n" offset 0.0, -1.6
 set xdata time;
 set format x "%F\n%TZ"
 set timefmt "%Y%m%d%H%M%S"
