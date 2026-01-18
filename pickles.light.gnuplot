@@ -11,7 +11,7 @@ set format x "%F\n%TZ"
 set timefmt "%Y%m%d%H%M%S"
 set grid xtics
 set grid y2tics
-set term svg size 1900, 700 font ",12" background '0xffffff'
+set term svg size 1900, 700 font ",13" background '0xffffff'
 
 set format y "%.0f"
 set format y2 "%.0f"

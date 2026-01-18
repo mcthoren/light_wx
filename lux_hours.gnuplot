@@ -4,12 +4,12 @@ set link y2
 set key outside below
 set xdata time;
 set timefmt "%Y%m%d"
-set xlabel "Time (UTC)\n" offset 0.0, -2.8;
+set xlabel "Time (UTC)\n" offset 0.0, -1.8;
 set format x "%F"
 set grid
 set ylabel "H_v (Mlxs)"
 set y2label "H_v (Mlxs)"
-set xtics auto rotate by 30 offset -6.8, -3.2
+set xtics auto rotate by 30 offset -6.8, -2.2
 set mxtics
 set mytics
 set xrange ["20230101":]
@@ -19,7 +19,7 @@ set xtics out
 set ytics out
 set format y "%.0f"
 set format y2 "%.0f"
-set term svg size 1900, 700 font ",12" background '0xffffff'
+set term svg size 1900, 700 font ",13" background '0xffffff'
 
 dat_f='/home/ghz/light_wx/data/lux_hours.dat'
 dat_f_45='/home/ghz/light_wx/data/lux_hours.45.dat'
